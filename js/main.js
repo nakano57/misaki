@@ -6,7 +6,7 @@ let isCharacterLoaded = false;
 let debug = 0; //set via console
 
 
-function loadChar(model = "./assets/spine/shiroko_home/Shiroko_home.skel") {
+function loadChar(model = "./assets/spine/misaki_home/Misaki_home.skel") {
     isCharacterLoaded = false;
     // remove previous spine
     if (app.stage.children.length > 0) {
