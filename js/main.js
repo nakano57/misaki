@@ -2,7 +2,7 @@ let app;
 let char;
 let audioList = []
 let audios;
-let isCharacterLoaded = false;
+let isCharacterLoaded = false; //いらない？
 let debug = 0; //set via console
 
 
@@ -33,6 +33,8 @@ function loadChar(model = "./assets/spine/misaki_home/Misaki_home.skel") {
 
 
 function onAssetsLoaded(loader, res) {
+
+    //重複
     if (audioList.length != 0) {
         for (var i in audioList) {
             audioList[i].stop();
@@ -67,26 +69,33 @@ function onAssetsLoaded(loader, res) {
         let a = document.createElement("option");
         a.value = a.innerHTML = animations[i].name;
         option.animations.append(a)
-        if (animations[i].name == "Idle_01")
+        if (animations[i].name == "Start_Idle_01")
             check = 1;
     }
 
-    //Play Animation
-    if (check) {
-        char.state.setAnimation(0, "Idle_01", option.loop.checked);
-        optionAnimations.value = "Idle_01";
-    } else {
-        char.state.setAnimation(0, animations[0].name, option.loop.checked);
-    }
+    char.state.addAnimation(0,"Start_Idle_01",false)
+    char.state.addAnimation(0,'Idle_01',true,0)
+    optionAnimations.value = "Idle_01";
+
+    // //Play Animation
+    // if (check) {
+    //     char.state.setAnimation(0, "Start_Idle_01", option.loop.checked);
+    //     optionAnimations.value = "Start_Idle_01";
+    // } else {
+    //     char.state.setAnimation(0, animations[0].name, option.loop.checked);
+    // }
     // Voiceline Listener / Handler
     char.state.addListener({
         event: function (entry, event) {
             if (debug)
                 console.log(event)
+
             if (event.stringValue == '')
                 return;
+
             if (!option.talkSound.checked)
                 return;
+                
             let charName = option.models.options[option.models.selectedIndex].text.replace("_home", "")
             //Camalize
             if (charName.indexOf("_") != -1) {
