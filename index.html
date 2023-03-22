@@ -45,7 +45,23 @@
 
     <!-- load it -->
     <script>
-
+        let option = {
+            models: document.getElementById("optionModels"),
+            animations: document.getElementById("optionAnimations"),
+            loop: document.getElementById("optionLoop"),
+            talkSound: document.getElementById("optionTalkSound"),
+            scaleFit: document.getElementById("optionScaleFit"),
+            scaleHalf: document.getElementById("optionScaleHalf"),
+            width: document.getElementById("optionWidth"),
+            height: document.getElementById("optionHeight"),
+            scale: document.getElementById("optionScale"),
+            autoPos: document.getElementById("optionAutoPos"),
+            x: document.getElementById("optionX"),
+            y: document.getElementById("optionY"),
+            FPS: document.getElementById("optionFPS"),
+            export: document.getElementById("optionExport"),
+            exportType: document.getElementById("optionExportType")
+        }
         async function main() {
             // Init models
             let dataModels = await fetch("./data/models.json").then(r => r.json())
