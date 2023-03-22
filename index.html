@@ -45,6 +45,7 @@
 
     <!-- load it -->
     <script>
+
         async function main() {
             // Init models
             let dataModels = await fetch("./data/models.json").then(r => r.json())
@@ -56,8 +57,22 @@
             }
 
             // Events
+            option.models.onchange = function () {
+                localStorage.setItem("blue-archive-res-model", this.value);
+                loadChar(this.value)
+            }
+            option.animations.onchange = function () {
+                playAnimation(this.value);
+            }
+            option.loop.onchange = function () {
+                localStorage.setItem("blue-archive-res-loop", this.checked);
+                playAnimation(option.animations.value);
+            }
             option.height.onchange = option.width.onchange = function () {
                 updateCanvas(option.width.value, option.height.value)
+            }
+            option.talkSound.onchange = function () {
+                localStorage.setItem("blue-archive-res-talkSound", this.checked);
             }
             option.scaleFit.onclick = function () {
                 if (isCharacterLoaded)
