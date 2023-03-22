@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja-jp">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-    <title>Blue Archive Resource Viewer</title>
+    <title>Blue Archive Misaki</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <meta name="og:title" content="Blue Archive Spine Viewer" />
     <meta property="og:url" content="https://respectz.github.io/blue-archive-spine/" />
@@ -37,111 +37,6 @@
 </head>
 
 <body>
-    <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar style="position: fixed">
-        <div class="uk-navbar-left">
-            <ul class="uk-navbar-nav uk-dotnav-vertical">
-                <li class="uk-active">
-                    <button class="uk-button uk-button-default" type="button" uk-toggle="target: #sidebar-options"><span
-                            uk-icon="cog"></span></button>
-                </li>
-                <li class="uk-active">
-                    <button class="uk-button uk-button-default" type="button"
-                        onclick="document.fullscreen?document.exitFullscreen():document.documentElement.requestFullscreen()"><span
-                            uk-icon="expand"></span></button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-
-    <div id="sidebar-options" uk-offcanvas>
-        <div class="uk-offcanvas-bar">
-            <button class="uk-offcanvas-close" type="button" uk-close></button>
-            <h3>Blue Archive Spines</h3>
-            <p>Select Model</p>
-            <select class="uk-select" id="optionModels">
-            </select>
-            <p>Select Animation</p>
-            <select class="uk-select" id="optionAnimations">
-            </select>
-            <p><label><input class="uk-checkbox" type="checkbox" id="optionLoop"> Loop</label></p>
-            <p><label><input class="uk-checkbox" type="checkbox" id="optionTalkSound"> Play Talk Sound</label></p>
-            <!-- Advanced Options -->
-            <ul uk-accordion>
-                <li>
-                    <a class="uk-accordion-title" href="#">Advanced Options</a>
-                    <div class="uk-accordion-content">
-                        <div class="uk-grid-small" uk-grid>
-                            <div class="uk-width-1-1">
-                                <button class="uk-button uk-button-default" id="optionScaleFit">Fit Scale</button>
-                                <button class="uk-button uk-button-default" id="optionScaleHalf">1/2 Scale</button>
-                            </div>
-                            <div class="uk-width-1-4 uk-margin">
-                                <p>Size</p>
-                            </div>
-                            <div class="uk-width-3-4">
-                                <input class="uk-input" type="number" step="1" id="optionWidth">
-                                <input class="uk-input" type="number" step="1" id="optionHeight">
-                            </div>
-                            <div class="uk-width-1-4 uk-margin">
-                                <p>Scale</p>
-                            </div>
-                            <div class="uk-width-3-4">
-                                <input class="uk-input" type="number" min="0.01" step="0.01" id="optionScale">
-                            </div>
-                            <div class="uk-width-1-1">
-                                <p><label><input class="uk-checkbox" type="checkbox" id="optionAutoPos" checked> Auto
-                                        Centerize</label></p>
-                            </div>
-                            <div class="uk-width-1-1">
-                                <p>You can also move it by dragging.</p>
-                            </div>
-                            <div class="uk-width-1-4 uk-margin">
-                                <p>X</p>
-                            </div>
-                            <div class="uk-width-3-4">
-                                <input class="uk-input" type="number" min="0" step="1" id="optionX" disabled>
-                            </div>
-                            <div class="uk-width-1-4 uk-margin">
-                                <p>Y</p>
-                            </div>
-                            <div class="uk-width-3-4">
-                                <input class="uk-input" type="number" min="0" step="1" id="optionY" disabled>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <!-- Export Animation -->
-            <ul uk-accordion>
-                <li>
-                    <a class="uk-accordion-title" href="#">Export Animation</a>
-                    <div class="uk-accordion-content">
-                        <div class="uk-grid-small" uk-grid>
-                            <div class="uk-width-1-4 uk-margin">
-                                <p>FPS</p>
-                            </div>
-                            <div class="uk-width-3-4">
-                                <input class="uk-input" type="number" min="1" step="1" id="optionFPS" value="60">
-                            </div>
-                            <div class="uk-width-1-1">
-                                <p>File Type</p>
-                            </div>
-                            <div class="uk-width-1-1">
-                                <select class="uk-select" id="optionExportType">
-                                    <option value="video/mp4">.mp4</option>
-                                    <option value="video/webm">.webm</option>
-                                </select>
-                            </div>
-                            <div class="uk-width-1-1">
-                                <button class="uk-button uk-button-default" id="optionExport">Export</button>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
 
     <!-- Main Canvas -->
     <div id="canvasWrapper">
