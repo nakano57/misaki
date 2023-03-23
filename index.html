@@ -169,7 +169,7 @@
         }
         async function main() {
             // Init models
-            // let dataModels = await fetch("./data/models.json").then(r => r.json())
+            let dataModels = await fetch("./data/models.json").then(r => r.json())
             // for (var i in dataModels) {
             //     let opt = document.createElement("option");
             //     opt.value = dataModels[i];
@@ -347,7 +347,7 @@
                 }
             }
             await updateCanvas(localStorage.getItem("blue-archive-res-width"), localStorage.getItem("blue-archive-res-height"))
-            //loadChar(option.models.value);
+            loadChar(dataModels[0]);
         }
         main()
     </script>
