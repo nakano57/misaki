@@ -45,6 +45,10 @@
 
     <!-- load it -->
     <script>
+        let option = {
+             scale: document.getElementById("optionScale"),
+         }
+
         async function main() {
             // Init models
             let dataModels = await fetch("./data/models.json").then(r => r.json())
@@ -108,8 +112,6 @@
                 // console.log("end", e)
                 isDragging = false;
                 canvasScreen.removeEventListener(type, func)
-                // option.x.value = canvasX
-                // option.y.value = canvasY
             }
 
             canvasScreen.onmouseup = canvasScreen.onmouseout = handleMoveEnd
