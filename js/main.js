@@ -76,7 +76,6 @@ function onAssetsLoaded(loader, res) {
     // //Play Animation
     char.state.addAnimation(0,"Start_Idle_01",false)
     char.state.addAnimation(0,'Idle_01',true,0)
-    //optionAnimations.value = "Idle_01";
 
 
     // Voiceline Listener / Handler
@@ -85,13 +84,10 @@ function onAssetsLoaded(loader, res) {
             if (debug)
                 console.log(event)
 
-            if (event.stringValue == '')
-                return;
-
-            // if (!option.talkSound.checked)
+            // if (event.stringValue == '')
             //     return;
                 
-            let charName = "Misaki.skel"
+            let charName = "Misaki"
             //Camalize
             if (charName.indexOf("_") != -1) {
                 charName = charName.toLowerCase().replace(/([-_][a-z])/g, group =>
@@ -105,10 +101,6 @@ function onAssetsLoaded(loader, res) {
             if (debug)
                 console.log(charName)
             //Play
-            if (charName == 'MashiroSwimsuit')
-                charName = 'CH0061';
-            if (charName == 'ShirokoRidingsuit')
-                charName = 'ShirokoRidingSuit'
             let voice = new Howl({
                 src: [audios[event.stringValue]]
             });
@@ -127,14 +119,3 @@ function onAssetsLoaded(loader, res) {
     app.stage.addChild(char);
     isCharacterLoaded = true;
 }
-
-// function playAnimation(name) {
-//     if (audioList.length != 0) {
-//         for (var i in audioList) {
-//             audioList[i].stop();
-//         }
-//         audioList = [];
-//     }
-
-//     char.state.setAnimation(0, name, true);
-// }
