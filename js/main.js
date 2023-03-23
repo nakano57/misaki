@@ -3,7 +3,7 @@ let char;
 let audioList = []
 let audios;
 let isCharacterLoaded = false; //いらない？
-let debug = true; //set via console
+let debug = 0; //set via console
 
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home.skel") {
@@ -81,11 +81,10 @@ function onAssetsLoaded(loader, res) {
     // Voiceline Listener / Handler
     char.state.addListener({
         event: function (entry, event) {
-            if (debug)
-                console.log(event)
+            console.log(event)
 
-            // if (event.stringValue == '')
-            //     return;
+            if (event.stringValue == '')
+                return;
                 
             let charName = "Misaki"
             //Camalize
