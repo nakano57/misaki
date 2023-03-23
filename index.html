@@ -71,9 +71,6 @@
                     );
                     app.renderer.autoResize = true;
                     app.stage.interactive = true;
-                    $(window).on("load resize", function () {
-                        app.renderer.resize(window.innerWidth, window.innerHeight);
-                    });
                 }
             }
             await updateCanvas(window.innerWidth, window.innerHeight)
