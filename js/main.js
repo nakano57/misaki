@@ -3,7 +3,7 @@ let char;
 let audioList = []
 let audios;
 let isCharacterLoaded = false; //いらない？
-let debug = 0; //set via console
+let debug = 1; //set via console
 
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home.skel") {
