@@ -72,7 +72,7 @@ function onAssetsLoaded(loader, res) {
         if (animations[i].name == "Start_Idle_01")
             check = 1;
     }
-    
+
     // //Play Animation
     char.state.addAnimation(0,"Start_Idle_01",false)
     char.state.addAnimation(0,'Idle_01',true,0)
@@ -128,13 +128,13 @@ function onAssetsLoaded(loader, res) {
     isCharacterLoaded = true;
 }
 
-function playAnimation(name) {
-    if (audioList.length != 0) {
-        for (var i in audioList) {
-            audioList[i].stop();
-        }
-        audioList = [];
-    }
+// function playAnimation(name) {
+//     if (audioList.length != 0) {
+//         for (var i in audioList) {
+//             audioList[i].stop();
+//         }
+//         audioList = [];
+//     }
 
-    char.state.setAnimation(0, name, true);
-}
+//     char.state.setAnimation(0, name, true);
+// }

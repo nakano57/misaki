@@ -45,10 +45,6 @@
 
     <!-- load it -->
     <script>
-        let option = {
-             scale: document.getElementById("optionScale"),
-         }
-
         async function main() {
             // Init models
             let dataModels = await fetch("./data/models.json").then(r => r.json())
@@ -57,11 +53,6 @@
             window.onresize = function () {
                 width = window.innerWidth;
                 height = window.innerHeight;
-
-                if (!app) {
-                    app.width = width;
-                    app.height = height;
-                }
             }
 
             // Start
@@ -80,7 +71,7 @@
                     );
                 }
             }
-            await updateCanvas(localStorage.getItem("blue-archive-res-width"), localStorage.getItem("blue-archive-res-height"))
+            await updateCanvas(width, height)
             loadChar(dataModels[0]);
         }
         main()
