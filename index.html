@@ -327,14 +327,14 @@
                 height = height ? height : window.innerHeight;
                 //localStorage.setItem("blue-archive-res-width", width)
                 //localStorage.setItem("blue-archive-res-height", height)
-                option.width.value = canvasScreen.width = width;
-                option.height.value = canvasScreen.height = height;
+                // option.width.value = canvasScreen.width = width;
+                // option.height.value = canvasScreen.height = height;
 
 
-                if (option.autoPos.checked && isCharacterLoaded) {
-                    char.x = option.x.value = width / 2;
-                    char.y = option.y.value = height / 1;
-                }
+                // if (option.autoPos.checked && isCharacterLoaded) {
+                //     char.x = option.x.value = width / 2;
+                //     char.y = option.y.value = height / 1;
+                // }
                 if (!app) {
                     audios = await fetch("./data/audio.json").then(r => r.json())
                     app = new PIXI.Application(
@@ -347,7 +347,7 @@
                 }
             }
             await updateCanvas(localStorage.getItem("blue-archive-res-width"), localStorage.getItem("blue-archive-res-height"))
-            loadChar(option.models.value);
+            //loadChar(option.models.value);
         }
         main()
     </script>
