@@ -57,73 +57,12 @@
             window.onresize = function () {
                 width = window.innerWidth;
                 height = window.innerHeight;
+
+                if (!app) {
+                    app.width = width;
+                    app.height = height;
+                }
             }
-
-            // Draggable Canvas
-            // let canvasScreen = document.getElementById("screen")
-            // let isDragging = false;
-            // let nowMouseX, nowMouseY;
-            // let lastMouseX, lastMouseY;
-            // let canvasX, canvasY;
-
-            // function updatePos() {
-            //     if (isDragging)
-            //         window.requestAnimationFrame(updatePos)
-            //     if (!isCharacterLoaded)
-            //         return;
-            //     if (!nowMouseX || !nowMouseY)
-            //         return;
-            //     if ((nowMouseX == lastMouseX) && (nowMouseY == lastMouseY))
-            //         return;
-                // console.log(nowMouseX, lastMouseX, nowMouseY, lastMouseY)
-            //     char.x = canvasX += parseInt(nowMouseX - lastMouseX)
-            //     char.y = canvasY += parseInt(nowMouseY - lastMouseY)
-            //     lastMouseX = nowMouseX
-            //     lastMouseY = nowMouseY
-            // }
-
-            // function handleMove(e) {
-            //     nowMouseX = e.clientX
-            //     nowMouseY = e.clientY
-            // }
-
-            // function handleTouch(e) {
-            //     handleMove(e.touches[0])
-            // }
-
-            // function handleMoveStart(e, type = "mousemove", func = handleMove) {
-            //     // console.log("start", e)
-            //     isDragging = true;
-            //     canvasX = char.x;
-            //     canvasY = char.y;
-            //     nowMouseX = lastMouseX = e.clientX
-            //     nowMouseY = lastMouseY = e.clientY
-            //     window.requestAnimationFrame(updatePos)
-            //     canvasScreen.addEventListener(type, func, { passive: true })
-            // }
-
-            // canvasScreen.onmousedown = handleMoveStart
-
-            // canvasScreen.ontouchstart = function (e) {
-            //     handleMoveStart(e.touches[0], "touchmove", handleTouch)
-            // }
-
-            // function handleMoveEnd(e, type = "mousemove", func = handleMove) {
-            //     // console.log("end", e)
-            //     isDragging = false;
-            //     canvasScreen.removeEventListener(type, func)
-            // }
-
-            // canvasScreen.onmouseup = canvasScreen.onmouseout = handleMoveEnd
-
-            // canvasScreen.ontouchend = function (e) {
-            //     handleMoveEnd(e.touches[0], "touchmove", handleTouch)
-            // }
-
-            // canvasScreen.onwheel = function (e) {
-            //     char.scale.x = char.scale.y = option.scale.value = (option.scale.value - e.deltaY / 10000)
-            // }
-            
 
             // Start
             async function updateCanvas(width, height) {
@@ -146,26 +85,5 @@
         }
         main()
     </script>
-    <!-- Exporter -->
-    <script src="js/canvas-exporter.js"></script>
-    <!-- Modal Exporter -->
-    <div id="modal-exporter" class="uk-flex-top" uk-modal='{"bg-close": false, "esc-close": false}'>
-        <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical" id="modal-exporter-content">
-            <div id="rendering">
-                <p>Rendering...</p>
-                <progress id="export-progress" class="uk-progress" value="0" max="100"></progress>
-            </div>
-            <div id="complete">
-                <p>Done !</p>
-                <div id="result">
-
-                </div>
-                <p class="uk-text-right">
-                    <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
-                </p>
-            </div>
-        </div>
-    </div>
 </body>
-
 </html>
