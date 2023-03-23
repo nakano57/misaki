@@ -57,18 +57,18 @@ function onAssetsLoaded(loader, res) {
     char.y = window.innerHeight / 1;
 
     //Set option value
-    option.scale.value = 0.5;
-    option.x.value = char.x;
-    option.y.value = char.y;
+    // option.scale.value = 0.5;
+    // option.x.value = char.x;
+    // option.y.value = char.y;
 
     // Insert animations to index.html
     const animations = res.char.spineData.animations;
     let check = 0;
-    option.animations.innerHTML = "";
+    //option.animations.innerHTML = "";
     for (var i in animations) {
         let a = document.createElement("option");
         a.value = a.innerHTML = animations[i].name;
-        option.animations.append(a)
+        //option.animations.append(a)
         if (animations[i].name == "Start_Idle_01")
             check = 1;
     }
@@ -84,50 +84,51 @@ function onAssetsLoaded(loader, res) {
     // } else {
     //     char.state.setAnimation(0, animations[0].name, option.loop.checked);
     // }
+    
     // Voiceline Listener / Handler
-    char.state.addListener({
-        event: function (entry, event) {
-            if (debug)
-                console.log(event)
+    // char.state.addListener({
+    //     event: function (entry, event) {
+    //         if (debug)
+    //             console.log(event)
 
-            if (event.stringValue == '')
-                return;
+    //         if (event.stringValue == '')
+    //             return;
 
-            if (!option.talkSound.checked)
-                return;
+    //         // if (!option.talkSound.checked)
+    //         //     return;
                 
-            let charName = option.models.options[option.models.selectedIndex].text.replace("_home", "")
-            //Camalize
-            if (charName.indexOf("_") != -1) {
-                charName = charName.toLowerCase().replace(/([-_][a-z])/g, group =>
-                    group
-                        .toUpperCase()
-                        .replace('-', '')
-                        .replace('_', '')
-                );
-            }
-            charName = charName.charAt(0).toUpperCase() + charName.slice(1);
-            if (debug)
-                console.log(charName)
-            //Play
-            if (charName == 'MashiroSwimsuit')
-                charName = 'CH0061';
-            if (charName == 'ShirokoRidingsuit')
-                charName = 'ShirokoRidingSuit'
-            let voice = new Howl({
-                src: [audios[event.stringValue]]
-            });
-            // If already loaded, play it
-            if (voice.state() == 'loaded')
-                voice.play();
-            else if (voice.state() == 'loading') {
-                voice.on('load', function () {
-                    voice.play();
-                })
-            }
-            audioList.push(voice);
-        }
-    })
+    //         let charName = option.models.options[option.models.selectedIndex].text.replace("_home", "")
+    //         //Camalize
+    //         if (charName.indexOf("_") != -1) {
+    //             charName = charName.toLowerCase().replace(/([-_][a-z])/g, group =>
+    //                 group
+    //                     .toUpperCase()
+    //                     .replace('-', '')
+    //                     .replace('_', '')
+    //             );
+    //         }
+    //         charName = charName.charAt(0).toUpperCase() + charName.slice(1);
+    //         if (debug)
+    //             console.log(charName)
+    //         //Play
+    //         if (charName == 'MashiroSwimsuit')
+    //             charName = 'CH0061';
+    //         if (charName == 'ShirokoRidingsuit')
+    //             charName = 'ShirokoRidingSuit'
+    //         let voice = new Howl({
+    //             src: [audios[event.stringValue]]
+    //         });
+    //         // If already loaded, play it
+    //         if (voice.state() == 'loaded')
+    //             voice.play();
+    //         else if (voice.state() == 'loading') {
+    //             voice.on('load', function () {
+    //                 voice.play();
+    //             })
+    //         }
+    //         audioList.push(voice);
+    //     }
+    // })
     //Add to main canvas
     app.stage.addChild(char);
     isCharacterLoaded = true;
