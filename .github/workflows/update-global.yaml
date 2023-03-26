@@ -2,8 +2,6 @@ name: Update-Global
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 19 * * *'
 
 permissions: write-all
 
