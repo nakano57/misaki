@@ -1,12 +1,9 @@
-const audioList = []
-const app = new PIXI.Application(
-    {
-        width: window.innerWidth,
-        height: window.innerHeight,
-        view: document.getElementById('screen')
-    }
-);
+let app;
 let char;
+let audioList = []
+let audios;
+let debug = 0; //set via console
+
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
     // remove previous spine
@@ -19,7 +16,7 @@ function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
         for (var i in audioList) {
             audioList[i].stop();
         }
-        audioList.splice(0);
+        audioList = [];
     }
     try {
         app.loader.resources = {};
@@ -32,15 +29,16 @@ function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
     }
 }
 
+
 function onAssetsLoaded(loader, res) {
-    const screen = document.getElementById('screen');
+    screen = document.getElementById('screen')
 
     //重複
     if (audioList.length != 0) {
         for (var i in audioList) {
             audioList[i].stop();
         }
-        audioList.splice(0);
+        audioList = [];
     }
 
     char = new PIXI.spine.Spine(res.char.spineData);
@@ -87,9 +85,9 @@ function onAssetsLoaded(loader, res) {
                 );
             }
             charName = charName.charAt(0).toUpperCase() + charName.slice(1);
-
+            if (debug)
+                console.log(charName)
             //Play
-            audios = fetch("../data/audio.json").then(r => r.json());
             let voice = new Howl({
                 src: [audios[event.stringValue]]
             });
@@ -107,27 +105,3 @@ function onAssetsLoaded(loader, res) {
     //Add to main canvas
     app.stage.addChild(char);
 }
-
-async function main() {
-
-    // On window resize
-    window.onresize = function () {
-        screen.width = window.innerWidth;
-        screen.height = window.innerHeight;
-    }
-
-    // Start
-    // async function updateCanvas(width, height) {
-    //     if (!app) {
-            
-    //         app.renderer.autoResize = true;
-    //         app.stage.interactive = true;
-    //     }else{
-    //         app.renderer.resize(width, height);
-    //     }
-    // }
-    // await updateCanvas(window.innerWidth, window.innerHeight)
-    loadChar();
-}
-
-main();
