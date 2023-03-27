@@ -3,6 +3,7 @@ let char;
 let audioList = []
 let audios;
 let debug = 0; //set via console
+let screen = document.getElementById('screen')
 
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
@@ -31,7 +32,7 @@ function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
 
 
 function onAssetsLoaded(loader, res) {
-    screen = document.getElementById('screen')
+    //screen = document.getElementById('screen')
 
     //重複
     if (audioList.length != 0) {
@@ -105,3 +106,33 @@ function onAssetsLoaded(loader, res) {
     //Add to main canvas
     app.stage.addChild(char);
 }
+
+async function main() {
+    // On window resize
+    window.onresize = function () {
+        screen.width = window.innerWidth;
+        screen.height = window.innerHeight;
+    }
+
+    // Start
+    async function updateCanvas(width, height) {
+
+        if (!app) {
+            audios = await fetch("./data/audio.json").then(r => r.json())
+            app = new PIXI.Application(
+                {
+                    width: width,
+                    height: height,
+                    view: screen
+                }
+            );
+            app.renderer.autoResize = true;
+            app.stage.interactive = true;
+        }else{
+            app.renderer.resize(width, height);
+        }
+    }
+    await updateCanvas(window.innerWidth, window.innerHeight)
+    loadChar();
+}
+        
