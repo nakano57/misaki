@@ -1,6 +1,5 @@
 let app;
 let audioList = []
-const debug = 0; //set via console
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
     // remove previous spine
@@ -81,8 +80,6 @@ function onAssetsLoaded(loader, res) {
                 );
             }
             charName = charName.charAt(0).toUpperCase() + charName.slice(1);
-            if (debug)
-                console.log(charName)
 
             //Play
             audios = fetch("../data/audio.json").then(r => r.json());
