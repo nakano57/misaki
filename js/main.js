@@ -42,12 +42,8 @@ function onAssetsLoaded(loader, res) {
 
     char = new PIXI.spine.Spine(res.char.spineData);
 
-    // console.log(char)
-    // console.log(char.spineData.height)
-    // console.log(char.spineData.width)
-
     // Scaler
-    char.scale.x = char.scale.y = Math.min(window.innerHeight/char.spineData.height,window.innerWidth/char.spineData.width);
+    char.scale.x = char.scale.y = Math.max(window.innerHeight/char.spineData.height,window.innerWidth/char.spineData.width);
 
     // Centerize
     char.x = window.innerWidth / 2;
