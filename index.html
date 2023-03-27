@@ -47,10 +47,11 @@
 
     <!-- load it -->
     <script>
+        screen = document.getElementById('screen')
+
         async function main() {            
             // On window resize
             window.onresize = function () {
-                screen = document.getElementById('screen')
                 screen.width = window.innerWidth;
                 screen.height = window.innerHeight;
             }
@@ -66,7 +67,7 @@
                         {
                             width: width,
                             height: height,
-                            view: document.getElementById("screen")
+                            view: screen
                         }
                     );
                     app.renderer.autoResize = true;

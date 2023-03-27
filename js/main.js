@@ -31,6 +31,7 @@ function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
 
 
 function onAssetsLoaded(loader, res) {
+    screen = document.getElementById('screen')
 
     //重複
     if (audioList.length != 0) {
@@ -46,8 +47,8 @@ function onAssetsLoaded(loader, res) {
     char.scale.x = char.scale.y = Math.max(window.innerHeight/char.spineData.height,window.innerWidth/char.spineData.width);
 
     // Centerize
-    char.x = window.innerWidth / 2;
-    char.y = window.innerHeight / 1;
+    char.x = screen.width / 2;
+    char.y = screen.height / 2;
 
     // //Play Animation
     char.state.addAnimation(0,"Start_Idle_01",false)
