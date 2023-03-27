@@ -48,7 +48,7 @@ function onAssetsLoaded(loader, res) {
 
     // Centerize
     char.x = screen.width / 2;
-    char.y = screen.height - char.spineData.height*char.scale.y/2;
+    char.y = (screen.height - char.spineData.height*char.scale.y)/2;
 
     // //Play Animation
     char.state.addAnimation(0,"Start_Idle_01",false)
