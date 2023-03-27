@@ -46,6 +46,36 @@
     <!-- <audio controls autoplay loop src="assets/audio/rain.mp3" type="audio/mp3">rain</audio> -->
 
     <!-- load it -->
-    <script src="js/main.js"></script>
+    <script>
+        async function main() {
+            // On window resize
+            window.onresize = function () {
+                screen.width = window.innerWidth;
+                screen.height = window.innerHeight;
+            }
+
+            // Start
+            async function updateCanvas(width, height) {
+
+                if (!app) {
+                    audios = await fetch("./data/audio.json").then(r => r.json())
+                    app = new PIXI.Application(
+                        {
+                            width: width,
+                            height: height,
+                            view: document.getElementById('screen')
+                        }
+                    );
+                    app.renderer.autoResize = true;
+                    app.stage.interactive = true;
+                }else{
+                    app.renderer.resize(width, height);
+                }
+            }
+            await updateCanvas(window.innerWidth, window.innerHeight)
+            loadChar();
+        }
+        main()
+    </script>
 </body>
 </html>
