@@ -3,8 +3,6 @@ let char;
 let audioList = []
 let audios;
 let debug = 0; //set via console
-let screen = document.getElementById('screen')
-
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
     // remove previous spine
@@ -32,7 +30,7 @@ function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
 
 
 function onAssetsLoaded(loader, res) {
-    //screen = document.getElementById('screen')
+    screen = document.getElementById('screen')
 
     //重複
     if (audioList.length != 0) {
@@ -108,6 +106,8 @@ function onAssetsLoaded(loader, res) {
 }
 
 async function main() {
+    screen = document.getElementById('screen')
+
     // On window resize
     window.onresize = function () {
         screen.width = window.innerWidth;
