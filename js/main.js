@@ -47,11 +47,11 @@ function onAssetsLoaded(loader, res) {
     // console.log(char.spineData.width)
 
     // Scaler
-    char.scale.x = char.scale.y = 0.5;
+    char.scale.x = char.scale.y = 1.0;
 
     // Centerize
     char.x = window.innerWidth / 2;
-    char.y = window.innerHeight / 2;
+    char.y = window.innerHeight / 1;
 
     //Set option value
     // option.scale.value = 0.5;
