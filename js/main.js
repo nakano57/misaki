@@ -47,7 +47,7 @@ function onAssetsLoaded(loader, res) {
     // console.log(char.spineData.width)
 
     // Scaler
-    char.scale.x = char.scale.y = Math.max(char.spineData.height / window.innerHeight,char.spineData.width/window.innerWidth);
+    char.scale.x = char.scale.y = Math.max(char.spineData.height / window.innerHeight,char.spineData.width/window.innerWidth)/2;
 
     // Centerize
     char.x = window.innerWidth / 2;
