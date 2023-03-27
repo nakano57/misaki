@@ -1,6 +1,5 @@
 let app;
 let audioList = []
-const screen = document.getElementById('screen');
 const debug = 0; //set via console
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
@@ -28,6 +27,7 @@ function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
 }
 
 function onAssetsLoaded(loader, res) {
+    const screen = document.getElementById('screen');
 
     //重複
     if (audioList.length != 0) {
