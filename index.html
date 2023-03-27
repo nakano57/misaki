@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-    <title>Blue Archive Resource Viewer</title>
+    <title>Blue Archive Misaki</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <meta name="og:title" content="Blue Archive Misaki" />
     <meta property="og:url" content="https://respectz.github.io/blue-archive-spine/" />
@@ -50,8 +50,9 @@
         async function main() {            
             // On window resize
             window.onresize = function () {
-                width = window.innerWidth;
-                height = window.innerHeight;
+                screen = document.getElementById('screen')
+                screen.width = window.innerWidth;
+                screen.height = window.innerHeight;
             }
 
             // Start
