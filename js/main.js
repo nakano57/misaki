@@ -1,4 +1,3 @@
-var app;
 const audioList = []
 const app = new PIXI.Application(
     {
