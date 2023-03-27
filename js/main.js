@@ -47,8 +47,7 @@ function onAssetsLoaded(loader, res) {
     // console.log(char.spineData.width)
 
     // Scaler
-    char.scale.x = 0.5;
-    char.scale.y = 0.5;
+    char.scale.x = char.scale.y = 1.0;
 
     // Centerize
     char.x = window.innerWidth / 2;
@@ -58,18 +57,6 @@ function onAssetsLoaded(loader, res) {
     // option.scale.value = 0.5;
     // option.x.value = char.x;
     // option.y.value = char.y;
-
-    // Insert animations to index.html
-    const animations = res.char.spineData.animations;
-    let check = 0;
-    //option.animations.innerHTML = "";
-    for (var i in animations) {
-        let a = document.createElement("option");
-        a.value = a.innerHTML = animations[i].name;
-        //option.animations.append(a)
-        if (animations[i].name == "Start_Idle_01")
-            check = 1;
-    }
 
     // //Play Animation
     char.state.addAnimation(0,"Start_Idle_01",false)
