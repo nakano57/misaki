@@ -6,6 +6,7 @@ const app = new PIXI.Application(
         view: document.getElementById('screen')
     }
 );
+let char;
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
     // remove previous spine
@@ -42,7 +43,7 @@ function onAssetsLoaded(loader, res) {
         audioList.splice(0);
     }
 
-    const char = new PIXI.spine.Spine(res.char.spineData);
+    char = new PIXI.spine.Spine(res.char.spineData);
 
     if(screen.width/screen.height < char.spineData.width/char.spineData.height){
         //tate hoso
