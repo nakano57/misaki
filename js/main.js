@@ -1,8 +1,10 @@
 let app;
 let char;
 let audioList = []
-let audios;
+const audios = await fetch("../data/audio.json").then(r => r.json());
+const screen = document.getElementById('screen');
 let debug = 0; //set via console
+
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
     // remove previous spine
@@ -28,9 +30,7 @@ function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
     }
 }
 
-
 function onAssetsLoaded(loader, res) {
-    screen = document.getElementById('screen')
 
     //重複
     if (audioList.length != 0) {
@@ -106,7 +106,6 @@ function onAssetsLoaded(loader, res) {
 }
 
 async function main() {
-    screen = document.getElementById('screen')
 
     // On window resize
     window.onresize = function () {
@@ -117,7 +116,6 @@ async function main() {
     // Start
     async function updateCanvas(width, height) {
         if (!app) {
-            audios = await fetch("../data/audio.json").then(r => r.json())
             app = new PIXI.Application(
                 {
                     width: width,
@@ -134,4 +132,5 @@ async function main() {
     await updateCanvas(window.innerWidth, window.innerHeight)
     loadChar();
 }
+
 main();
