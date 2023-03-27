@@ -43,7 +43,7 @@ function onAssetsLoaded(loader, res) {
 
     char = new PIXI.spine.Spine(res.char.spineData);
 
-    if(screen.width/screen.height > char.spineData.width/char.spineData.height){
+    if(screen.width/screen.height < char.spineData.width/char.spineData.height){
         //yoko hoso
         //jyouge cut
         char.scale.x = char.scale.y = screen.width/char.spineData.width;
