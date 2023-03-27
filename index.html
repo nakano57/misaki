@@ -49,7 +49,7 @@
     <script>
         screen = document.getElementById('screen')
 
-        async function main() {            
+        async function main() {
             // On window resize
             window.onresize = function () {
                 screen.width = window.innerWidth;
@@ -58,8 +58,6 @@
 
             // Start
             async function updateCanvas(width, height) {
-                width = width ? width : window.innerWidth;
-                height = height ? height : window.innerHeight;
 
                 if (!app) {
                     audios = await fetch("./data/audio.json").then(r => r.json())
@@ -72,6 +70,8 @@
                     );
                     app.renderer.autoResize = true;
                     app.stage.interactive = true;
+                }else{
+                    app.renderer.resize(width, height);
                 }
             }
             await updateCanvas(window.innerWidth, window.innerHeight)

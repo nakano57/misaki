@@ -43,10 +43,6 @@ function onAssetsLoaded(loader, res) {
 
     char = new PIXI.spine.Spine(res.char.spineData);
 
-      // Scaler
-    //char.scale.x = char.scale.y = Math.max(screen.height/char.spineData.height, screen.width/char.spineData.width);
-
-
     if(screen.width/screen.height < char.spineData.width/char.spineData.height){
         //tate hoso
         //sayuu cut
@@ -64,12 +60,6 @@ function onAssetsLoaded(loader, res) {
         char.x = screen.width / 2;
         char.y = screen.height;
     }
-
-
-  
-    // // Centerize
-    // char.x = screen.width / 2;
-    // char.y = screen.height;
 
     // //Play Animation
     char.state.addAnimation(0,"Start_Idle_01",false)
