@@ -47,10 +47,7 @@
 
     <!-- load it -->
     <script>
-        async function main() {
-            // Init models
-            let dataModels = await fetch("./data/models.json").then(r => r.json())
-            
+        async function main() {            
             // On window resize
             window.onresize = function () {
                 width = window.innerWidth;
