@@ -44,9 +44,9 @@ function onAssetsLoaded(loader, res) {
 
     // Scaler
     if(window.innerWidth/window.innerHeight < 16/9){
-        char.scale.x = char.scale.y = window.innerHeight/char.spineData.height;
-    }else{
         char.scale.x = char.scale.y = window.innerWidth/char.spineData.width;
+    }else{
+        char.scale.x = char.scale.y = window.innerHeight/char.spineData.height;
     }
     //char.scale.x = char.scale.y = Math.max(window.innerHeight/char.spineData.height,window.innerWidth/char.spineData.width);
 
