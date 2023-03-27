@@ -62,7 +62,7 @@ function onAssetsLoaded(loader, res) {
         char.scale.y=screen.width/char.spineData.width;
         // Centerize
         char.x = screen.width / 2;
-        char.y = screen.height*1.25;
+        char.y = screen.height*1.125;
     }
 
 
