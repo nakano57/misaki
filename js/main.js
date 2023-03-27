@@ -116,9 +116,8 @@ async function main() {
 
     // Start
     async function updateCanvas(width, height) {
-
         if (!app) {
-            audios = await fetch("./data/audio.json").then(r => r.json())
+            audios = await fetch("../data/audio.json").then(r => r.json())
             app = new PIXI.Application(
                 {
                     width: width,
