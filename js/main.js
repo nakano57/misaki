@@ -44,11 +44,11 @@ function onAssetsLoaded(loader, res) {
     char = new PIXI.spine.Spine(res.char.spineData);
 
     // Scaler
-    char.scale.x = char.scale.y = Math.max(screen.height/char.spineData.height,screen.width/char.spineData.width);
+    char.scale.x = char.scale.y = Math.max(screen.height/char.spineData.height, screen.width/char.spineData.width);
 
     // Centerize
     char.x = screen.width / 2;
-    char.y = screen.height - char.spineData.height*char.scale.y/8;
+    char.y = screen.height * 0.75;
 
     // //Play Animation
     char.state.addAnimation(0,"Start_Idle_01",false)
