@@ -1,7 +1,6 @@
 let app;
 let char;
 let audioList = []
-const audios = await fetch("../data/audio.json").then(r => r.json());
 const screen = document.getElementById('screen');
 let debug = 0; //set via console
 
@@ -86,7 +85,9 @@ function onAssetsLoaded(loader, res) {
             charName = charName.charAt(0).toUpperCase() + charName.slice(1);
             if (debug)
                 console.log(charName)
+                
             //Play
+            audios = fetch("../data/audio.json").then(r => r.json());
             let voice = new Howl({
                 src: [audios[event.stringValue]]
             });
