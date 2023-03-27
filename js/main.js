@@ -2,12 +2,10 @@ let app;
 let char;
 let audioList = []
 let audios;
-let isCharacterLoaded = false; //いらない？
 let debug = 0; //set via console
 
 
-function loadChar(model = "./assets/spine/misaki_home/Misaki_home.skel") {
-    isCharacterLoaded = false;
+function loadChar(model) {
     // remove previous spine
     if (app.stage.children.length > 0) {
         app.stage.children.pop();
@@ -116,5 +114,4 @@ function onAssetsLoaded(loader, res) {
     })
     //Add to main canvas
     app.stage.addChild(char);
-    isCharacterLoaded = true;
 }
