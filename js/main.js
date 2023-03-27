@@ -5,7 +5,7 @@ let audios;
 let debug = 0; //set via console
 
 
-function loadChar(model) {
+function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
     // remove previous spine
     if (app.stage.children.length > 0) {
         app.stage.children.pop();
