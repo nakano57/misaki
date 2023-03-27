@@ -1,5 +1,12 @@
 var app;
 const audioList = []
+const app = new PIXI.Application(
+    {
+        width: window.innerWidth,
+        height: window.innerHeight,
+        view: document.getElementById('screen')
+    }
+);
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
     // remove previous spine
@@ -110,22 +117,16 @@ async function main() {
     }
 
     // Start
-    async function updateCanvas(width, height) {
-        if (!app) {
-            app = new PIXI.Application(
-                {
-                    width: width,
-                    height: height,
-                    view: document.getElementById('screen')
-                }
-            );
-            app.renderer.autoResize = true;
-            app.stage.interactive = true;
-        }else{
-            app.renderer.resize(width, height);
-        }
-    }
-    await updateCanvas(window.innerWidth, window.innerHeight)
+    // async function updateCanvas(width, height) {
+    //     if (!app) {
+            
+    //         app.renderer.autoResize = true;
+    //         app.stage.interactive = true;
+    //     }else{
+    //         app.renderer.resize(width, height);
+    //     }
+    // }
+    // await updateCanvas(window.innerWidth, window.innerHeight)
     loadChar();
 }
 
