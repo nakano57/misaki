@@ -47,7 +47,7 @@ function onAssetsLoaded(loader, res) {
     // console.log(char.spineData.width)
 
     // Scaler
-    char.scale.x = char.scale.y = 1.0;
+    char.scale.x = char.scale.y = 0.5;
 
     // Centerize
     char.x = window.innerWidth / 2;
