@@ -54,7 +54,7 @@ function onAssetsLoaded(loader, res) {
         char.scale.y=screen.height/char.spineData.height;
         // Centerize
         char.x = screen.width / 2;
-        char.y = screen.height;
+        char.y = screen.height*0.75;
     }else{
         //yoko hoso
         //jyouge cut
@@ -62,7 +62,7 @@ function onAssetsLoaded(loader, res) {
         char.scale.y=screen.width/char.spineData.width;
         // Centerize
         char.x = screen.width / 2;
-        char.y = screen.height*1.5;
+        char.y = screen.height/0.75;
     }
 
 
