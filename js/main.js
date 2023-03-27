@@ -1,7 +1,7 @@
 let app;
 let audioList = []
 const screen = document.getElementById('screen');
-let debug = 0; //set via console
+const debug = 0; //set via console
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
     // remove previous spine
@@ -119,7 +119,7 @@ async function main() {
                 {
                     width: width,
                     height: height,
-                    view: screen
+                    view: document.getElementById('screen')
                 }
             );
             app.renderer.autoResize = true;
