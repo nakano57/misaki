@@ -2,7 +2,6 @@ let app;
 let audioList = []
 const screen = document.getElementById('screen');
 let debug = 0; //set via console
-const char = new PIXI.spine.Spine(res.char.spineData);
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
     // remove previous spine
@@ -38,6 +37,7 @@ function onAssetsLoaded(loader, res) {
         audioList = [];
     }
 
+    const char = new PIXI.spine.Spine(res.char.spineData);
 
     if(screen.width/screen.height < char.spineData.width/char.spineData.height){
         //tate hoso
