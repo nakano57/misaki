@@ -135,4 +135,4 @@ async function main() {
     await updateCanvas(window.innerWidth, window.innerHeight)
     loadChar();
 }
-        
+main();
