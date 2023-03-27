@@ -43,12 +43,29 @@ function onAssetsLoaded(loader, res) {
 
     char = new PIXI.spine.Spine(res.char.spineData);
 
-    // Scaler
-    char.scale.x = char.scale.y = Math.max(screen.height/char.spineData.height, screen.width/char.spineData.width);
+    if(screen.width/screen.height > char.spineData.width/char.spineData.height){
+        //yoko hoso
+        //jyouge cut
+        char.scale.x = char.scale.y = screen.width/char.spineData.width;
+        // Centerize
+        char.x = screen.width / 2;
+        char.y = screen.height*1.5;
+    }else{
+        //tate hoso
+        //sayuu cut
+        char.scale.x = char.scale.y = screen.height/char.spineData.height;
+        // Centerize
+        char.x = screen.width / 2;
+        char.y = screen.height;
+    }
 
-    // Centerize
-    char.x = screen.width / 2;
-    char.y = screen.height * 0.75;
+
+    // // Scaler
+    // char.scale.x = char.scale.y = Math.max(screen.height/char.spineData.height, screen.width/char.spineData.width);
+
+    // // Centerize
+    // char.x = screen.width / 2;
+    // char.y = screen.height;
 
     // //Play Animation
     char.state.addAnimation(0,"Start_Idle_01",false)
