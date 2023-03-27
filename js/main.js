@@ -1,5 +1,5 @@
-let app;
-let audioList = []
+var app;
+const audioList = []
 
 function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
     // remove previous spine
@@ -12,7 +12,7 @@ function loadChar(model = "./assets/spine/misaki_home/Misaki_home@2x.skel") {
         for (var i in audioList) {
             audioList[i].stop();
         }
-        audioList = [];
+        audioList.splice(0);
     }
     try {
         app.loader.resources = {};
@@ -33,7 +33,7 @@ function onAssetsLoaded(loader, res) {
         for (var i in audioList) {
             audioList[i].stop();
         }
-        audioList = [];
+        audioList.splice(0);
     }
 
     const char = new PIXI.spine.Spine(res.char.spineData);
